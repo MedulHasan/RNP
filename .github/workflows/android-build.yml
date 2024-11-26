@@ -5,8 +5,8 @@ env:
     NODE_VERSION: '18'
     JAVA_VERSION: '17'
     GRADLE_VERSION: '8.10.2'
-    GIT_USER_NAME: 'Medul H'
-    GIT_USER_EMAIL: 'medul.techvill@gmail.com'
+    GIT_USER_NAME: 'MedulHasan'
+    GIT_USER_EMAIL: 'medul.cse@gmail.com'
 
 on:
     push:
@@ -141,8 +141,8 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.PUBLISH_SECRET_TOKEN }}
               run: |
-                  git config --global user.name "${{ env.GIT_USER_NAME }}"
-                  git config --global user.email "${{ env.GIT_USER_EMAIL }}"
+                  git config user.name "${{ env.GIT_USER_NAME }}"
+                  git config user.email "${{ env.GIT_USER_EMAIL }}"
                   git tag -a "v${{ steps.get_version.outputs.version }}" -m "Release v${{ steps.get_version.outputs.version }}"
                   git push https://${GITHUB_TOKEN}@github.com/${{ github.repository }} "v${{ steps.get_version.outputs.version }}"
 
