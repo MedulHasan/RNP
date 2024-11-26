@@ -144,7 +144,7 @@ jobs:
                   git config user.name "${{ env.GIT_USER_NAME }}"
                   git config user.email "${{ env.GIT_USER_EMAIL }}"
                   git tag -a "v${{ steps.get_version.outputs.version }}" -m "Release v${{ steps.get_version.outputs.version }}"
-                  git push origin "v${{ steps.get_version.outputs.version }}"
+                  git push "https://${{ env.GIT_USER_NAME }}:${{ secrets.PUBLISH_SECRET_TOKEN }}@github.com/${{ github.repository }}.git" "v${{ steps.get_version.outputs.version }}"
 
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v1
