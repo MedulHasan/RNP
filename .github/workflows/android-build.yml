@@ -66,8 +66,7 @@ jobs:
 
             - name: Install dependencies
               run: |
-                  npm ci
-                  npm cache clean --force
+                  yarn install
 
             - name: Update Android version
               working-directory: android
