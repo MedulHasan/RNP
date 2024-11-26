@@ -27,7 +27,6 @@ function App(): React.JSX.Element {
     };
 
     const handleLogin = () => {
-        // Add your login logic here
         const result = NativeModules.CalendarModule.createCalendarEventSync(
             email,
             password,
